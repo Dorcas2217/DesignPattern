@@ -18,4 +18,11 @@ public class ObserverPalindrome implements Observer {
             }
         }
     }
+
+    @Override
+    public void afficherResultat() {
+     
+    }
+
+
 }
