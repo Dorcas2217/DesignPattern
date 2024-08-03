@@ -1,10 +1,19 @@
-public class Circle extends Shape {
+public class Circle extends Shape implements Cloneable{
   public double radium;
   public String color;
 
-  public Circle(double radium, String color) {
+  public Point point;
+
+  public Circle(double radium, String color, Point point) {
     this.radium = radium;
     this.color = color;
+    this.point = point;
+  }
+
+  public Circle clone() throws CloneNotSupportedException {
+    Circle cercleClone = (Circle) super.clone();
+    cercleClone.point = this.point.clone(); // Clonage du point : deep copy
+    return cercleClone;
   }
 
   public double getRadium() {
@@ -23,9 +32,8 @@ public class Circle extends Shape {
     this.color = color;
   }
 
-  @Override
-  public Circle clone() throws CloneNotSupportedException {
-    return (Circle) super.clone();
+  public Point getPoint() {
+    return point;
   }
 
   @Override
@@ -33,6 +41,7 @@ public class Circle extends Shape {
     return "Circle{" +
         "radium=" + radium +
         ", color='" + color + '\'' +
+        ", point=" + point +
         '}';
   }
 }
